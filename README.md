@@ -16,14 +16,14 @@ Also, both comments and submissions can be rated by all users with upvotes (posi
 The program generates two `.csv` files, one where submissions are stored and one where comments are stored:
 
 Submission data structure:
-	* `ID`: Identificator of the submission 
-	* `Title` 
-	-- `Text`
-	-- `Score` : Total rating of the post
-	-- `UpvoteRatio`
-	-- `NumberComments`
-	-- `Author` 
-	-- `Timestamp` : Date of the creation of the submission
+	- `ID`: Identificator of the submission 
+	- `Title` 
+	- `Text`
+	- `Score` : Total rating of the post
+	- `UpvoteRatio`
+	- `NumberComments`
+	- `Author` 
+	- `Timestamp` : Date of the creation of the submission
 
 Comment data structure:
 	-- `ID`
