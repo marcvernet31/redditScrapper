@@ -3,14 +3,14 @@ import pprint
 import pandas as pd
 
 from auxiliar import toTimestamp, save, load_DataFrame
-from userFunctions import commentSpecs
+from userFunctions import commentSpecs, postSpecs
 
 """
 Functions to access Reddit and retrieve a set of posts from a subreddit
 and a set of comments from a post
 """
 
-# Retrieve top comments from a specified submission 
+# Retrieve top comments from a specified submission
 def retrieveComments(dfInternal, submission, replaceLimit, commentSort, commentsRetrieved):
     submission.comment_sort = commentSort
     submission.comments.replace_more(limit=replaceLimit)
@@ -41,7 +41,7 @@ def retrievePosts(subreddit, submissionsRetrieved, isRetrieved, getComments, com
     # Iterate through top submissions in the specified subreddit
     i = 0
     for submission in subreddit.hot(limit = submissionsRetrieved):
-        if(str(submission.id) not in isRetrieved.keys()):
+        if(str(submission.id) not in isRetrieved.keys()) and postSpecs(submission):
             isRetrieved[submission.id] = True
             dfPost = dfPost.append(
                 pd.Series([
