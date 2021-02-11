@@ -11,7 +11,7 @@ def toTimestamp(ts):
 def save(df, filepath):
     df.to_csv(filepath)
 
-# Pensar una mica i fer que quedi més bonic
+# Load stored dataframes (with specified structure)
 def load_DataFrame(filepath, kind):
     df = pd.read_csv(filepath, index_col=False)
     del df['Unnamed: 0']
