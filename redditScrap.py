@@ -1,13 +1,16 @@
 import praw
 import pprint
 import pandas as pd
-from datetime import datetime
-
-
 
 from auxiliar import toTimestamp, save, load_DataFrame
 from userFunctions import commentSpecs
 
+"""
+Functions to access Reddit and retrieve a set of posts from a subreddit
+and a set of comments from a post
+"""
+
+# Retrieve top comments from a specified submission 
 def retrieveComments(dfInternal, submission, replaceLimit, commentSort, commentsRetrieved):
     submission.comment_sort = commentSort
     submission.comments.replace_more(limit=replaceLimit)
@@ -26,13 +29,16 @@ def retrieveComments(dfInternal, submission, replaceLimit, commentSort, comments
                 ignore_index = True)
     return dfInternal
 
+
+# Retrieve a set of posts from a subreddit
 def retrievePosts(subreddit, submissionsRetrieved, isRetrieved, getComments, commentSort, commentsRetrieved, savingFrequency, replaceLimit):
+    # Initialize dataframes to store retrieved data
     dfPost_columns = ['ID', 'Title', 'Text', 'Score', 'UpvoteRatio', 'NumberComents', 'Author', 'Timestamp']
     dfPost = pd.DataFrame(columns = dfPost_columns)
-
     dfComment_columns = ['ID', 'Text', 'Score',  'Author', 'isRoot', 'Timestamp', 'SubmissionID']
     dfComment = pd.DataFrame(columns = dfComment_columns)
 
+    # Iterate through top submissions in the specified subreddit
     i = 0
     for submission in subreddit.hot(limit = submissionsRetrieved):
         if(str(submission.id) not in isRetrieved.keys()):
@@ -50,11 +56,12 @@ def retrievePosts(subreddit, submissionsRetrieved, isRetrieved, getComments, com
                 index = dfPost_columns),
                 ignore_index = True)
             if getComments: dfComment = dfComment.append(retrieveComments(dfComment, submission, replaceLimit, commentSort, commentsRetrieved))
+
+        # Downlaod data as backup in case it's required
         if i%savingFrequency == 0 and i!=0:
             save(dfPost, f"data/{subreddit.display_name}_posts.csv")
             save(dfComment, f"data/{subreddit.display_name}_comments.csv")
             print(f"Backup copy saved with {i} posts and {len(dfComment.index)} comments")
         i += 1
-
 
     return dfPost, dfComment
