@@ -27,13 +27,13 @@ Submission data structure:
 - `Timestamp` : Date of the creation of the submission
 
 Comment data structure:
-	-- `ID`
-	-- `Text`	
-	-- `Score`
-	-- `Author`
-	-- `isRoot`: Boolean value, true if the comment is top-level
-	-- `Timestamp`: Date of the creation of the comment
-	-- `SubmissionID`: ID of the submission where the comment belongs
+- `ID`
+- `Text`	
+- `Score`
+- `Author`
+- `isRoot`: Boolean value, true if the comment is top-level
+- `Timestamp`: Date of the creation of the comment
+- `SubmissionID`: ID of the submission where the comment belongs
 
 ## How it works
 The program is used from the terminal, it has several flags that allow to add extra requirements. Basic information of the existing flags can be found with:
@@ -48,12 +48,13 @@ There's also the option to input a pair of already created datasets to update th
 [FOTO]
 
 Flags:
-	-- `-rl`
-	-- `-c`
-	-- `-csort`
-	-- `-cret`
-	-- `-u`
-	-- `-sf`
+- `-rl`
+- `-c`
+- `-csort`
+- `-cret`
+- `-u`
+- `-sf`
+
 ## Future work
 Adding the capability of updating datasets based on timestamp. This will allow the updated datasets to grow faster.
 
