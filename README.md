@@ -67,7 +67,7 @@ Due to the forest structure of comments threads, the number of comments grows ve
 The complexity is $O(c)$, where $c$ is the number of retrieved comments. So it's important to consider that the execution time will grow as fast as the number of comments retrieved.
 
 <p align="center">
-  <img src='readme_photos/complexity.png'/ >
+  <img src='readme_photos/complexity.png'/ width="200">
 </p>
 
 ## Future work
