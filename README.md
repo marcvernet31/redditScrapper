@@ -1,5 +1,6 @@
 
 
+
 # Reddit Scrapper
 
 Reddit Scrapper is a tool to extract data from Reddit. It's used from a terminal and it's aimed to be an easy and relatively fast way to download massive quantities of text and metadata from any subreddit.
@@ -17,23 +18,23 @@ Also, both comments and submissions can be rated by all users with *upvotes* (po
 The program generates two `.csv` files, one where submissions are stored and one where comments are stored:
 
 Submission data structure:
-	-- `ID`: Identificator of the submission 
-	-- `Title` 
-	-- `Text`
-	-- `Score` : Total rating of the post
-	-- `UpvoteRatio`
-	-- `NumberComments`
-	-- `Author` 
-	-- `Timestamp` : Date of the creation of the submission
+* `ID`: Identificator of the submission 
+* `Title` 
+* `Text`
+* `Score` : Total rating of the post
+ * `UpvoteRatio`
+* `NumberComments`
+* `Author` 
+* `Timestamp` : Date of the creation of the submission
 
 Comment data structure:
-	-- `ID`
-	-- `Text`	
-	-- `Score`
-	-- `Author`
-	-- `isRoot`: Boolean value, true if the comment is top-level
-	-- `Timestamp`: Date of the creation of the comment
-	-- `SubmissionID`: ID of the submission where the comment belongs
+* `ID`
+* `Text`	
+* `Score`
+* `Author`
+* `isRoot`: Boolean value, true if the comment is top-level
+* `Timestamp`: Date of the creation of the comment
+* `SubmissionID`: ID of the submission where the comment belongs
 
 ## How it works
 The program is used from the terminal, it has several flags that allow to add extra requirements. Basic information of the existing flags can be found with:
@@ -48,17 +49,16 @@ There's also the option to input a pair of already created datasets to update th
 [FOTO]
 
 Flags:
-	-- `-rl` , **Replace limit**: Number of batches of comments retrieved for every top-level comment. The default value is 1, and bigger values exponentially increase the number of comments retrieved and execution time.
-	-- `-c` : Choose if comments have to be retrieved. Default value is True, with `-c 0` comments won't be retrieved, and a comment dataset won't be created. 
-	-- `-csort`, **Comment Sort**: Way in which the comments are sorted, it can be *best*(default), *new* or *controversial*. 
-	-- `-cret`, **Comments Retrieved**: Number of top-level comments retrieved for submission. Default value is 500.
-	-- `-u`, **Update**: Choose to update previous datasets. False by default.
-	-- `-sf`, **Saving Frequency**: Frequency in read submission to save backup copy. This functionality allows to periodically save copies of retrieved data during long executions to minimize possible data loss. By  default it's 10.
+* `-rl` , **Replace limit**: Number of batches of comments retrieved for every top-level comment. The default value is 1, and bigger values exponentially increase the number of comments retrieved and execution time.
+* `-c` : Choose if comments have to be retrieved. Default value is True, with `-c 0` comments won't be retrieved, and a comment dataset won't be created. 
+* `-csort`, **Comment Sort**: Way in which the comments are sorted, it can be *best*(default), *new* or *controversial*. 
+* `-cret`, **Comments Retrieved**: Number of top-level comments retrieved for submission. Default value is 500.
+* `-u`, **Update**: Choose to update previous datasets. False by default.
+* `-sf`, **Saving Frequency**: Frequency in read submission to save backup copy. This functionality allows to periodically save copies of retrieved data during long executions to minimize possible data loss. By  default it's 10.
 
 ## Complexity observations
 Due to the forest structure of comments threads, the number of comments grows very fast. Modifying the default parameters will in most case make the number of comments grow much faster.
 The complexity is $O(c)$, where $c$ is the number of retrieved comments. So it's important to consider that the execution time will grow as fast as the number of comments retrieved.
-
 [FOTO] 
 
 ## Future work
