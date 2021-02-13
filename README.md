@@ -43,10 +43,16 @@ The program is used from the terminal, it has several flags that allow to add ex
 ```
 After entering the command, it will ask the user for input, the name of the desired subreddit and the number of submissions to retrieve:
 
-[FOTO]
+<p align="center">
+  <img src='readme_photos/regular.png'/ >
+</p>
+
 
 There's also the option to input a pair of already created datasets to update them with new posts.
-[FOTO]
+
+<p align="center">
+  <img src='readme_photos/update.png'/ >
+</p>
 
 Flags:
 * `-rl` , **Replace limit**: Number of batches of comments retrieved for every top-level comment. The default value is 1, and bigger values exponentially increase the number of comments retrieved and execution time.
@@ -59,7 +65,10 @@ Flags:
 ## Complexity observations
 Due to the forest structure of comments threads, the number of comments grows very fast. Modifying the default parameters will in most case make the number of comments grow much faster.
 The complexity is $O(c)$, where $c$ is the number of retrieved comments. So it's important to consider that the execution time will grow as fast as the number of comments retrieved.
-[FOTO] 
+
+<p align="center">
+  <img src='readme_photos/complexity.png'/ >
+</p>
 
 ## Future work
 * Adding the capability of updating datasets based on timestamp. This will allow the updated datasets to grow faster.
