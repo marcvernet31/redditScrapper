@@ -59,7 +59,7 @@ def flag_parameters():
     if args.savingFrequency: savingFrequency = args.savingFrequency
     else: savingFrequency = 10
 
-    return replaceLimit, getComments, commentSort, commentsRetrieved, update, int(savingFrequency)
+    return int(replaceLimit), getComments, commentSort, int(commentsRetrieved), update, int(savingFrequency)
 
 
 def main():
