@@ -8,8 +8,6 @@ Reddit Scrapper is a tool to extract data from Reddit. It's used from a terminal
 The objective of this tool is to create datasets (mainly focused on text) that can be useful for machine learning and NLP purposes. 
 Reddit data allows access to massive communities involving millions of people in some cases, this project is a first step to explore the capabilities of the enormous quantity of open source data and how it can be used to extract knowledge from the chaos.
 
-This project was inspired by the [GME short squeeze](https://en.wikipedia.org/wiki/GameStop_short_squeeze), and the question of how similar events can be predicted in the future using open source data from large communities interactions.
-
 ## What can be downloaded
 Reddit is organized in _subreddits_,  communities where users can post _submissions_. _Submissions_ are posts that contain text and sometimes images, and can be commented by other users.
 _Comments_ of a submission have a **forest structure**, each comment can be commented indefinitely, creating layers with different depth levels.
